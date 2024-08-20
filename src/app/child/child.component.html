@@ -1,0 +1,65 @@
+<h1 style="text-align: center;">Child Component</h1>
+
+<h1 [class]="classApply">Class Binding</h1>
+
+Enter your name : <input type="text" #text (keyup)="change(text)">
+<p>{{uname}}</p>
+
+<button (click)="onAdd()">Add to Cart</button>
+
+<p>{{msg}}</p>
+
+<button (click)="onchange()" [style]="multiStyle">change name</button><br>
+
+
+
+My Name is : <b>{{name}}</b><br>
+{{num1+num2}} <br><br>
+
+
+Name : <b> {{company? company.Name:'No data'}}</b> <br>
+City : <b>{{ company? company.City:'No data'}} </b> <br>
+State : <b>{{company? company.State:'No data'}}</b> <br>
+Country : <b>{{company? company.Country:'No data'}}</b> <br>
+
+<!-- Child Component : <input type="text" #Ccomponent (keyup)="senddata(Ccomponent.value)"><br>
+<br>
+
+Value of parent component : {{Pdata}} -->
+
+<h2> >> ngStyle example</h2>
+
+<div [ngStyle]="{'background-color':country=='India'?'red':'yellow'}">this is ngStyle directive example</div>
+
+@for(emp of employees;track emp.name){
+<ul>
+    <li [ngStyle]="{'background-color':getColor(emp.country)}">
+        Name : {{emp.name}} | Country : {{emp.country}}</li>
+</ul>
+}
+
+<div [ngStyle]="{'font-size.px':'30'}">Manish Tyagi</div>
+<div [ngStyle]="{'font-size.px':fontsize}">Manish Tyagi</div>
+
+
+<h2> >> ngClass example</h2>
+<!-- ngClass with String -->
+
+<div [ngClass]="'background font'">
+    Hello this is an example of ngClass with string</div><br><br>
+
+<!-- ngClass with Array -->
+
+<div [ngClass]="['background']">
+    Hello this is an example of ngClass with Array</div><br><br>
+
+<!-- ngClass with object -->
+
+<div [ngClass]="{'background':country=='USA', 'font':true}">
+    Hello this is an example of ngClass with object</div><br><br>
+
+<button (click)="enable()">enable disable</button>
+<h1>Property Binding</h1>
+<button [disabled]="currentVaue">click</button>
+<h1>Interpolation </h1>
+<button disabled="{{currentVaue}}">click</button>

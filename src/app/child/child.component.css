@@ -1,0 +1,16 @@
+.background {
+    background-color: blueviolet;
+    color: white;
+}
+
+.font {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.boldclass {
+    background-color: blueviolet;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}

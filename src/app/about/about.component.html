@@ -1,0 +1,114 @@
+<h1> About Page</h1>
+
+
+<h2>Structural Directive => Manipulate the dom element </h2>
+
+<button (click)="login()">login</button>
+<button (click)="logout()">log out</button>
+@if(isValid){
+<div>User is login </div>
+}@else{
+<div>User is logout</div>
+}
+<br><br>
+
+<input type="radio" name="rad" checked (click)="onchange(true)">Male
+<input type="radio" name="rad" (click)="onchange(false)">Female
+
+@if(gender){
+<div>I am Male</div>
+}
+
+@if(!gender){
+<div>I am Female</div>
+}
+<hr>
+
+<p><b> These Numbers :-
+        num1 = 2000
+        num2 = 200</b>
+</p>
+
+@if(num1>num2){
+<div>num1 is <b>greater</b> than num2</div>
+}@else if(num1==num2){
+<div>num1 is <b>equal</b> to num2</div>
+}@else{
+<div>num1 is <b>smaller</b> than num2</div>
+}
+
+
+<!--        @switch example           -->
+
+<h2 style="text-align: center; color: red;">switch example </h2>
+
+
+<div style="text-align: center;">
+
+    Enter Day : <input type="text" #day (keyup)="0"> <br><br>
+
+    @switch(day.value){
+    @case('Monday'){
+    <b>Today is Monday</b>
+    }
+    @case('Tuesday'){
+    <b>Today is Tuesday</b>
+    }
+    @case('Wednesday'){
+    <b>Today is Wednesday</b>
+    }
+    @case('Thrusday'){
+    <b>Today is Thursday</b>
+    }
+    @case('Friday'){
+    <b>Today is Friday</b>
+    }
+    @case('Saturday'){
+    <b>Today is Saturday</b>
+    }
+    @case('Sunday'){
+    <b>Today is Sanday</b>
+    }@default{
+    <b>Enter Valid day</b>
+    }
+    }
+</div>
+<hr>
+
+
+<!--      @for example           -->
+
+
+
+<h2 style="text-align: center; color: blueviolet;">for example </h2>
+
+<table style="margin: auto;" border=" 1" cellspacing="0" cellpadding="10px">
+    <tr>
+        <th>S No.</th>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+    </tr>
+    @for(emp of employees; track emp.id; let i=$index, f=$first, l=$last ){
+    <tr>
+        @if(f){
+        <td>{{i+1}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        }
+        @if(!f && !l){
+        <td>{{i+1}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        }
+        @if(l){
+        <td>{{i+1}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        }
+    </tr>
+    }@empty{
+    <tr>
+        <td colspan="2">No Data Found</td>
+    </tr>
+    }
+</table>

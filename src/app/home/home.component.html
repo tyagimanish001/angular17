@@ -1,0 +1,51 @@
+<h1>Home Page</h1>
+<h2>Pipes</h2>
+<h3>{{name}}</h3>
+<h3>{{name | lowercase}}</h3>
+<h3>{{name | uppercase}}</h3>
+<h3>{{name | titlecase}}</h3>
+
+<h3>{{name | slice:2:15}}</h3>
+
+<h3>{{company | json}}</h3>
+
+<table border="1" cellspacing="0" cellpadding="10px">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th> Name</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(student of students;track student.id){
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.name | uppercase}}</td>
+            <td>{{student.gender |uppercase}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Currency pipe</h2>
+<!-- 
+
+<h3>{{num | currency : 'USD'}}</h3>
+<h3>{{num | currency : 'INR'}}</h3>
+<h3>{{num | currency : 'INR':true:'2.3-5'}}</h3> -->
+
+<h2>Date pipe</h2>
+
+<h3>{{currentData}}</h3>
+<h3>{{currentData|date}}</h3>
+<h3>{{currentData|date:'shortDate'}}</h3>
+<h3>{{currentData|date:'longDate'}}</h3>
+<h3>{{currentData|date:'fullDate'}}</h3>
+<h3>{{currentData|date:'medium'}}</h3>
+<h3>{{currentData|date:'shortTime'}}</h3>
+<hr>
+
+<h2>Custome Pipe</h2>
+
+<h3 [style]=" pipeStyle">{{user | welcome}}</h3>

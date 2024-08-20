@@ -1,0 +1,60 @@
+<h1 style="text-align: center; background-color: rgb(212, 95, 197);">Reactive Form</h1>
+
+<div>
+    <form [formGroup]="regForm" (ngSubmit)="register()">
+        <div>
+            First Name : <input type="text" placeholder="First Name" formControlName="fname">
+            <div *ngIf="regForm.controls['fname'].touched && regForm.controls['fname'].invalid">
+                <span *ngIf="regForm.controls['fname'].hasError('required')">
+                    First name is required.
+                </span>
+                <span *ngIf="regForm.controls['fname'].hasError('minlength')">
+                    First name is required at least 5 character.
+                </span>
+                <span *ngIf="regForm.controls['fname'].hasError('maxlength')">
+                    First name is required only 10 characters.
+                </span>
+            </div>
+        </div><br>
+        <div>
+            Last Name : <input type="text" placeholder="Last Name" formControlName="lname">
+            <div>
+                <span *ngIf="regForm.controls['lname'].touched && regForm.controls['lname'].invalid">
+                    Last name is required.
+                </span>
+            </div>
+        </div><br>
+        <div>
+            Email Id : <input type="text" placeholder="Email" formControlName="email">
+            <div *ngIf="regForm.controls['email'].touched && regForm.controls['email'].invalid">
+                <span *ngIf="regForm.controls['email'].hasError('required')">
+                    Email is required.
+                </span>
+                <span *ngIf="regForm.controls['email'].hasError('email')">
+                    Email id should be Correct.
+                </span>
+
+            </div>
+        </div><br>
+        <div>
+            Mobile No. : <input type="text" placeholder="Mobile No." formControlName="mobileno">
+            <div *ngIf="regForm.controls['mobileno'].touched && regForm.controls['mobileno'].invalid">
+                <span *ngIf="regForm.controls['mobileno'].hasError('required')">
+                    Mobile No. is required.
+                </span>
+                <span *ngIf="regForm.controls['mobileno'].hasError('minlength')">
+                    Mobile No. is required at least 10 character.
+                </span>
+                <span *ngIf="regForm.controls['mobileno'].hasError('maxlength')">
+                    Mobile No. is required only 10 characters.
+                </span>
+            </div>
+        </div><br>
+        <div>
+            <button type="submit" [disabled]="regForm.invalid">Register</button>
+            <button type="reset">Reset</button>
+            <button (click)="reset()">Reset2</button>
+            <button (click)="fillData()">Fill Data</button>
+        </div>
+    </form>
+</div>

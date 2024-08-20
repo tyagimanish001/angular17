@@ -1,0 +1,30 @@
+<h1 Style="text-align: center; background-color: yellowgreen;">Template Driven Form</h1>
+
+<div>
+    <form #regData="ngForm" (ngSubmit)="register(regData)">
+        <div>
+            First Name : <input type="text" placeholder="Enter your First Name" required #fname="ngModel" name="fname"
+                ngModel> <br><br>
+            <span *ngIf=" !fname.value && fname.touched">
+                First Name is Requried !!
+            </span>
+        </div>
+        <div>
+            Last Name : <input type="text" placeholder="Enter your Last Name" required #lname="ngModel" name="lname"
+                ngModel><br><br>
+            <span *ngIf="!lname.value && lname.touched">
+                Last Name is Requried !!
+            </span>
+        </div>
+        <div>
+            Email : <input type="email" placeholder="Enter your Email" required email #email="ngModel" name="email"
+                ngModel><br><br>
+            <span *ngIf="!email.valid && email.touched">
+                Email is Requried !!
+            </span>
+        </div>
+        <div>
+            <input type="submit" value="Register" [disabled]="regData.invalid">
+        </div>
+    </form>
+</div>

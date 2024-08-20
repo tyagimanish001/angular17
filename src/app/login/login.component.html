@@ -1,0 +1,21 @@
+<h3>Login Page</h3>
+
+<table cellspacing="0" cellpadding="10px" border="1">
+    <tr>
+        <td>User Id :</td>
+        <td>
+            <input type="text" #userid>
+        </td>
+    </tr>
+    <tr>
+        <td>Password :</td>
+        <td>
+            <input type="password" #password>
+        </td>
+    </tr>
+    <tr>
+        <td><button (click)="onlogin(userid.value, password.value)">Login</button></td>
+
+        <td><button>Cancel</button></td>
+    </tr>
+</table>

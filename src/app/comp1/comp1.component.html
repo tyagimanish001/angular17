@@ -1,0 +1,14 @@
+<h2>Component 1</h2>
+
+Enter your Value : <input type="number" #textnum>
+<button (click)="addnumber(textnum.value)">Add Number</button>
+
+@for(num of list1 ; track num){
+<ul>
+    <li><b> {{num}}</b> </li>
+</ul>
+}
+
+<!-- Session Management -->
+
+<button (click)="setData()">Set localStorage Data</button>
